@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-11"
 
 keywords:
 
@@ -15,13 +15,13 @@ subcollection: platform-engineering
 # Concrete Platform Engineering for {{site.data.keyword.cloud_notm}}
 {: #white-paper}
 
-Concrete Platform Engineering on {{site.data.keyword.cloud}} streamlines application development by eliminating friction while you enhance scalability, security, and compliance. By leveraging deployable architectures that are built with Terraform and Ansible and {{site.data.keyword.cloud_notm}} catalogs, platform teams can automate infrastructure deployment and empower developers with self-service capabilities. Cost efficiency is achieved through bulk licensing and shared resources, while robust security and regulatory compliance safeguard organizational integrity. A centralized account structure, which is enabled by {{site.data.keyword.cloud_notm}} projects, strengthens governance, making platform engineering a cornerstone of modern IT management.
+Concrete Platform Engineering on {{site.data.keyword.cloud}} streamlines application development by eliminating friction while enhancing scalability, security, and compliance. By leveraging deployable architectures that are built with Terraform and Ansible and {{site.data.keyword.cloud_notm}} catalogs, platform teams can automate infrastructure deployment and empower developers with self-service capabilities. Cost efficiency is achieved through bulk licensing and shared resources, while robust security and regulatory compliance safeguard organizational integrity. A centralized account structure, which is enabled by {{site.data.keyword.cloud_notm}} projects, strengthens governance, making platform engineering a cornerstone of modern IT management.
 {: shortdesc}
 
 ## Introduction
 {: #heading-intro}
 
-Platform engineering is a discipline that is focused on designing and maintaining a cohesive technology platform to support software development and operations teams. Its primary goal is to eliminate friction for application development teams, enabling them to innovate and deliver applications faster and keeping the application secure and compliant.
+Platform engineering is a discipline that is focused on designing and maintaining a cohesive technology platform to support software development and operations teams. Its primary goal is to eliminate friction for application development teams, enabling them to innovate and deliver applications faster while remaining secure and compliant.
 
 For more on the general practice of platform engineering and why it is becoming important in the industry, see IBM’s [Platform Engineering](https://www.ibm.com/think/topics/platform-engineering).
 
@@ -33,20 +33,22 @@ Application development teams face several challenges that slow down application
 
 - **Infrastructure Selection:** Choosing the optimal mix of software and services for building applications, storing source code, hosting, scanning for vulnerabilities, and more.
 - **Infrastructure Expertise:** Developing or hiring skilled professionals to configure and maintain pipelines, source control systems, networking, clusters, and other infrastructure components.
+- **Application Lifecycle and Shift Left:** Choosing the right set of tools to build, test, and deploy applications. This includes shift left activities like code scanning, code coverage, change management, and evidence collection.
 - **Compliance Programs:** Navigating complex requirements such as PCI, GDPR, and others, which demand expertise, effort to maintain compliance, and resources for managing audits.
-- **Security Overhead:** Building or acquiring expertise to ensure application security by hardening images, setting up audits, applying patches, securing network ports, rotating secrets, enforcing secure coding practices, and so on.
+- **Security Overhead:** Building or acquiring expertise to ensure application security by hardening images, setting up audits, applying patches, scanning for vulnerabilities, securing network ports, rotating secrets, enforcing secure coding practices, and so on.
 - **High Availability:** Ensuring application availability despite outages, software bugs, denial-of-service attacks, and other disruptions requires thoughtful infrastructure design, monitoring, and robust disaster recovery capabilities.
 - **Scalability:** Enabling applications to scale with demand requires continuous performance monitoring and a deep understanding of key infrastructure services and potential application bottlenecks.
 - **Cost Control:** Managing infrastructure costs through reservations, right-sizing resources, selecting the right service plans, and sharing resources effectively.
 
 A well-designed platform engineering team can alleviate many of these burdens, empowering application teams to focus on innovation and delivery.
 However, application teams still need a degree of control to:
--	Move quickly
+- Move quickly
 - Control cost
--	Scale up or down
--	Choose tools that best suit their specific needs
+- Scale up or down
+- Choose tools that best suit their specific needs
+- Observe application and infrastructure
 
-The balance between platform engineering teams that centralize control and application teams that require flexibility highlights the importance of an **Internal Developer Platform (IDP)**. This platform provides an interface that empowers application teams with necessary control and automation, while platform engineers handle foundational infrastructure concerns, ensuring smoother, faster application development.
+The balance between platform engineering teams that need centralized control and application teams that require flexibility highlights the importance of an **Internal Developer Platform (IDP)**. This platform provides an interface that empowers application teams with necessary control and automation, while platform engineers handle foundational infrastructure concerns, ensuring smoother, faster application development.
 
 ## Evolution toward an internal developer platform
 {: #heading-evolution}
@@ -55,7 +57,7 @@ When you establish a platform engineering practice, one of the primary objective
 
 ![Crawl-walk-run platform evolution](images/crawl-walk-run.svg){: caption="Crawl-walk platform evolution" caption-side="bottom"}
 
-## Key Steps in platform engineering automation
+## Key steps in platform engineering automation
 {: #heading-steps}
 
 Successful platform engineering teams adopt an incremental approach to automation, ensuring early value delivery and continuous improvement. The following are the key steps to achieving effective platform engineering automation:
@@ -73,6 +75,8 @@ Successful platform engineering teams adopt an incremental approach to automatio
    Automate onboarding tasks for new applications, such as configuring namespaces, setting up pipeline triggers, managing Git repositories, and configuring firewalls.
 7. **Application scaling (run)**
    Enable scaling through automation to adjust deployment locations, CPU, storage, networking resources, and database service plans as needed.
+8. **Shift left (run)**
+   Enable application teams to ensure quality, security, compliance, and other key dimensions through shift-left scans, tests, and evidence collection that operate as early as possible in the code-build-test-deploy cycle.
 
 ## Evolving automation into a self-service IDP
 {: #heading-selfserve}
@@ -83,9 +87,10 @@ Enhancing automation by exposing key capabilities as self-service features creat
 2. **Self-serve Onboarding**
    Allow developers to initiate application onboarding with minimal friction through user-friendly interfaces or APIs.
 3. **CI/CD and Observability Integrations**
-   Make CI/CD pipelines and observability tools easily accessible for developers to configure, monitor, and troubleshoot their applications independently.
+   Make CI/CD pipelines (including shift-left) and observability tools easily accessible for developers to configure, monitor, and troubleshoot their applications independently.
 4. **Scaling Automation**
    Provide tooling so that developers can adjust resources and capacity without manual intervention.
+
 By transforming internal platform engineering tools into a robust IDP, organizations can boost developer productivity, reduce operational overhead, and foster innovation through frictionless automation and enhanced autonomy.
 
 ## Key Stakeholders and Roles
@@ -98,14 +103,19 @@ Roles and Responsibilities:
    * Deploy and manage applications and infrastructure.
    * Optimize infrastructure for cost, scalability, security, and compliance.
    * Automate operations to minimize developer friction.
+   * Operate infrastructure, handle patching, monitor infra KPIs
+   * First responders for emergencies
+   * Front security and compliance audits
 * Application developers
    * Develop, develop, and maintain applications.
-   * Use platform engineering’s automation tools for deployment and scaling.
-   * Ensure security and compliance within their applications.
+   * Use platform engineering automation tools for deployment and scaling.
+   * Ensure security and compliance within their applications (leveraging shift-left automation where possible).
+   * Monitor application KPIs
 * Business and accounting teams
    * Oversee investments in application development.
    * Ensure infrastructure and application cost efficiency.
    * Provide input on scaling decisions and compliance considerations.
+   * Monitor business KPIs
 * Security and compliance teams
    * Define and enforce security and compliance policies.
    * Provide guidance on infrastructure and application security.
@@ -121,7 +131,7 @@ By establishing these clearly defined roles, platform engineering teams can impr
 
 Businesses rarely gain value from application teams investing in infrastructure innovation. Instead, platform engineering teams should evaluate business needs and provide common infrastructure options. Recognizing that no single solution fits all, they must offer a range of patterns to suit diverse requirements—such as GPUs for AI workloads, specialized storage for data processing, or distinct handling for batch jobs versus long-running services.
 
-Platform engineering teams create **deployable architectures** to deliver standardized infrastructure solutions. These packaged bundles include automation (for example, Terraform, Ansible) and supporting resources like documentation and diagrams. Hosted in a private **{{site.data.keyword.cloud}} catalog**, DAs offer a self-serve menu of options, enabling quick deployment, customization within boundaries, and efficient lifecycle management.
+Platform engineering teams create **deployable architectures** to deliver standardized infrastructure solutions. These packaged bundles include automation (for example, Terraform, Ansible) and supporting resources that include documentation, architecture diagrams, runbooks, required access permissions, and compliance statements. Hosted in a private **{{site.data.keyword.cloud}} catalog**, DAs offer a self-serve menu of options, enabling quick deployment, customization within boundaries, and efficient lifecycle management.
 
 Share IaC as templates (deployable architectures) with the {{site.data.keyword.cloud}} catalog to enable self-serve access and Day 2 operations.
 {: tip}
@@ -145,14 +155,25 @@ Selecting and maintaining infrastructure can distract application developers and
 
 As discussed previously, experts codify their knowledge into **deployable architectures**, ensuring services are correctly configured to meet business needs. This is an ongoing effort, as infrastructure must adapt to evolving security, compliance, service features, and business requirements.
 
-The result is an evolving portfolio of DAs, with which teams must stay current. {{site.data.keyword.cloud}} projects are designed to help users of DAs automate updates in a safe and controlled fashion. {{site.data.keyword.cloud}} projects provide other important benefits.
+The result is an evolving portfolio of deployable architectures, with which teams must stay current. {{site.data.keyword.cloud}} projects are designed to help users of deployable architectures automate updates in a safe and controlled fashion.
+
+### Application lifecycle and shift left
+{: #application-lifecycle}
+
+A core responsibility of platform engineering is to ensure that applications are deployed safely, reliably, and in alignment with organizational needs. This includes supporting incremental deployments, blue-green switching, rollbacks, and other essential deployment strategies. Additionally, security and compliance requirements introduce complexities such as change management, secrets management, and provenance tracking.
+
+Beyond deployment, development teams require robust tooling for building and testing applications. Over time, these foundational needs expand to include "shift left" practices like code scanning, license compliance, and test coverage analysis—integrating security and quality checks earlier in the development lifecycle.
+
+To streamline these processes, platform engineering teams should provide a comprehensive, pre-packaged solution that allows developers to focus on delivering business value. The {{site.data.keyword.cloud_notm}} [DevSecOps Application Lifecycle Management](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-devsecops-alm-e1c16cac-7ea8-413f-a819-67e3a3251e44-global) Deployable Architecture offers a solid foundation for achieving this goal.
+
+![DevSecOps Application Lifecycle Management Deployable Architecture](images/almda.png){: caption="DevSecOps application lifecycle management deployable architecture" caption-side="bottom"}
 
 ### Compliance
 {: #compliance}
 
-Compliance programs can place a significant burden on application teams, requiring specialized infrastructure expertise and extensive evidence collection. Platform engineering teams help mitigate this challenge by managing infrastructure-related compliance, standardizing evidence formats, and acting as liaisons for auditors. While application teams remain responsible for some tasks, their overall compliance workload is greatly reduced.
+Compliance programs can place a significant burden on application teams, requiring specialized infrastructure expertise and extensive evidence collection. Platform engineering teams help mitigate this challenge by managing infrastructure-related compliance requirements, standardizing evidence formats, and acting as liaisons for auditors. While application teams remain responsible for some tasks, their overall compliance workload is greatly reduced.
 
-Have auditors review each DA as a general tool, not as a specific deployment so future deployments are pre-approved.
+Have auditors review each deployable architecture as a general tool, not as a specific deployment so future deployments are pre-approved.
 {: tip}
 
 To address compliance requirements efficiently, **deployable architectures** incorporate solutions for infrastructure compliance requirements. These DAs can be audited, record compliance in a standardized format, and provide a strong foundation for meeting compliance needs. {{site.data.keyword.cloud}}’s **Security and Compliance Center** enhances this process by automating compliance checks and generating necessary evidence. Furthermore, deployable architectures in the {{site.data.keyword.cloud}} catalog clearly display compliance information, making it easily accessible to application developers and auditors.
@@ -182,12 +203,12 @@ Workload Accounts
 Production and nonproduction accounts
 :    Workload accounts are further broken up into production accounts and nonproduction accounts. Development, test, and staging workloads run in nonproduction accounts. This separation makes it simple to apply additional controls to production accounts – such as controls that protect customer data from employee access as required by GDPR.
 
-User access to workload accounts is restricted through access groups or trusted profiles, granting permissions only for specific tasks, such as accessing observability tools. Infrastructure changes and maintenance activities, including secret rotation and manual backups, are fully automated and run with the administration account. To empower application developers, a curated subset of those automated operations is available for self-service. In rare "break glass" scenarios, select platform engineers can temporarily elevate their privileges through trusted profiles—a controlled, auditable process that is designed to minimize the risk of human error.
+User access to workload accounts is restricted through access groups or trusted profiles, granting permissions only for specific tasks, such as accessing observability tools. Infrastructure changes and maintenance activities, including secret rotation and manual backups, are fully automated and executed from the administration account. To empower application developers, a curated subset of those automated operations is available for self-service. In rare "break glass" scenarios, select platform engineers can temporarily elevate their privileges through trusted profiles—a controlled, auditable process that is designed to minimize the risk of human error.
 
 Set a short session limit on superuser trusted profiles so that users don’t simply use them all the time.
 {: tip}
 
-By packaging these automated operations into DAs and managing them with **{{site.data.keyword.cloud}} projects**, platform engineers ensure consistency, security, and ease of use across all operations. This structured approach minimizes risk and empowers teams with reliable and secure infrastructure management.
+By packaging these automated operations into deployable architectures and managing them with **{{site.data.keyword.cloud}} projects**, platform engineers ensure consistency, security, and ease of use across all operations. This structured approach minimizes risk and empowers teams with reliable and secure infrastructure management.
 
 In large enterprises, many administration accounts and their associated workload accounts can exist to align with organizational structures. These sets of related accounts can be organized within a single {{site.data.keyword.cloud}} enterprise as **account groups**.
 
@@ -205,6 +226,8 @@ Centralized platform engineering expertise ensures that infrastructure enables h
 * **Horizontal scaling:** Use compute services like {{site.data.keyword.cloud}} **VPC virtual machines**, **ROKS/Kubernetes**, or {{site.data.keyword.cloud}} **Code Engine** and adjust the number of nodes or use autoscaling to achieve horizontal application scaling.
 * **Vertical Scaling:** Increase the size of nodes in {{site.data.keyword.cloud}} **Clusters**, **virtual machines**, or **Databases** to scale applications vertically.
 * **Multi-region deployments:** Enhance both scale and availability by deploying workloads across multiple regions and use IBM **Cloud Internet Services** to globally load balance across regions.
+* **Observability:** Monitor logs and metrics with **IBM Cloud Logs** and **IBM Cloud Monitoring**. Provide access to these essential tools to application teams as part of onboarding.
+* **Notifications:** Route alerts and other notifications to the appropriate platform and application operations teams with **IBM Cloud Event Notifications**. Event Notifications integrates with other systems like slack, service now, pager duty making it easy to reach the right people.
 
 By integrating these practices into deployable architectures, platform engineers ensure that application teams can easily access reliable and scalable infrastructure solutions that are tailored to their needs.
 
@@ -217,15 +240,108 @@ Platform engineering teams help control cost for an organization in several ways
    * **Reservations** that provide discounts in return for 1-or-3 year terms on compute infrastructure, and
    * **Subscriptions** that give discounts in return for spend commitments across a bundle of services or all of {{site.data.keyword.cloud}}.
     {{site.data.keyword.cloud}} services frequently offer service plans that decrease in cost with higher use or for commitment to higher use.
-* **Shared infrastructure** - multiple applications can share the same infrastructure to save costs. This is valuable with services that have a fixed minimum cost like many of the {{site.data.keyword.cloud}} Security services, network, and compute services. Shared infrastructure also allows applications teams to benefit from plans that offer lower per-unit rates at higher consumption levels. Platform engineers are responsible for deploying the shared infrastructure while application teams are onboard with a deployable Architecture.
+* **Shared infrastructure** - multiple applications can share the same infrastructure to save costs. This is valuable with services that have a fixed minimum cost like many of the {{site.data.keyword.cloud}} Security services, network, and compute services. Shared infrastructure also allows applications teams to benefit from plans that offer lower per-unit rates at higher consumption levels. Platform engineers are responsible for deploying the shared infrastructure while application teams onboard to the infrastructure with a deployable architecture.
 * **Optimized scaling and monitoring** - platform engineering teams monitor infrastructure use and scale it on behalf of applications for maximum cost efficiency.  IBM Cloudability helps monitor cost and optimize both scale and commitments. An instance of the Cloudability deployable architecture deployed to each workload account makes it easy to monitor cost. In addition, IBM Turbonomic provides automation to optimize resource allocation and AI-powered recommendations.
-* **Chargebacks or showbacks** allow costs to be attributed to specific applications. Assisted by {{site.data.keyword.cloud}} projects and cloudability, platform engineering teams can view costs by project and application and thus implement chargebacks or showbacks to create application incentives to control infrastructure spend.
+* **Chargebacks or showbacks** allow costs to be attributed to specific applications. Assisted by {{site.data.keyword.cloud}} projects and IBM Cloudability, platform engineering teams can view costs by project and application and thus implement chargebacks or showbacks to create application incentives to control infrastructure spend.
 
-## Conclusion
-{: #heading-conclusion}
+## Example IDP built on {{site.data.keyword.cloud_notm}}
+{: #idp}
 
-In response to the cost and complexities of modern infrastructure management, platform engineering is emerging as a strategic approach favored by development organizations. This practice leads to implementation of an internal developer platform (IDP), which can be enhanced with {{site.data.keyword.cloud}} capabilities.
+By integrating these recommendations, a platform engineering team can construct a robust **Internal Developer Platform (IDP)** on {{site.data.keyword.cloud_notm}}, streamlining the developer experience and operational efficiency.
 
-For example, by leveraging deployable architectures, platform engineering teams use templated automation solutions, using tools like Terraform and Ansible. These deployable architectures are then hosted on a private {{site.data.keyword.cloud}} catalog, providing a self-serve interface for quick deployment and customization within predefined guardrails defined by the author. By deploying deployable architectures through projects and adopting an account structure with administrative accounts and workload accounts, many maintenance, security, and compliance concerns can be addressed.
+### Application developer view
+{: #idp-app-dev-view}
 
-This approach not only reduces operational costs but also enhances security and compliance standards, thereby supporting application teams in their quest to maintain efficiency and effectiveness in complex environments.
+For application development teams, an {{site.data.keyword.cloud_notm}} based IDP provides a self-service catalog of templates that are tailored for various application types, complete with built-in CI/CD pipelines and automated deployment. Developers maintain control over their deployments, with full visibility into deployment status, logs, and monitoring across both nonproduction and production environments. Additionally, they have direct access to database and storage services in nonproduction environments, facilitating debugging and issue resolution.
+
+Beyond deployment and monitoring, developers receive automated notifications for key events and support through their preferred messaging platforms and issue tracking systems. They can track costs, make updates, and report platform issues seamlessly, ensuring a smooth and efficient development workflow.
+
+![Application Developer Experience Diagram](images/app-dev.svg)
+
+To interact with the IDP, application development teams log in to the IBM Cloud administrative account, where they can:
+
+- Browse their templates (**deployable architectures**) through an IBM Cloud **private catalog** tailored to their needs.
+- Access an inventory of existing applications via **IBM Cloud projects**.
+- Manage deployments through the **IBM Cloud toolchains** interface.
+- Monitor and observe applications with **IBM Cloud observability** across nonproduction and production environments.
+
+For those seeking a streamlined experience, a combination of IAM policies, account settings, and catalog configuration can be used to restrict access to unnecessary cloud complexities, keeping the focus on application development.
+
+By leveraging IBM Cloud, platform engineering teams can deliver a comprehensive, powerful, and user-friendly IDP that enhances developer productivity and accelerates software delivery.
+
+## Application developer view with Backstage / Red Hat Developer Hub
+{: #idp-backstage}
+
+All the {{site.data.keyword.cloud_notm}} tools and services can be accessed with the CLI and API, making them easy to integrate into a solution fronted by another tool. In this example, we explore how an Internal Developer Platform (IDP) can be built by using **Backstage.io** or **Red Hat Developer Hub** while leveraging IBM Cloud services.
+
+![Backstage.io Application Developer Experience](images/backstage.svg)
+
+**Backstage.io** serves as the front end for the entire developer experience, streamlining workflows and improving productivity. However, the implementation of key IDP functions for {{site.data.keyword.cloud_notm}} deployments still relies on the {{site.data.keyword.cloud_notm}} tools discussed earlier. These integrations can seamlessly coexist with other cloud environments, providing developers with the flexibility to select one or more clouds for deployment.
+
+Organizations can customize their stack by replacing components with their preferred tools—such as GitHub instead of GitLab, GitHub Actions instead of {{site.data.keyword.cloud_notm}} toolchains, or Instana Observability instead of {{site.data.keyword.cloud_notm}} observability—ensuring a tailored, scalable, and efficient developer experience.
+
+### Platform engineering operations view
+{: #idp-ops-view}
+
+{{site.data.keyword.cloud_notm}} can provide platform engineers with an operations view into their platform.
+
+![Platform Operations Experience](images/platform-ops.svg)
+
+To operate the platform, platform engineering teams log in to the {{site.data.keyword.cloud_notm}} administrative account, where they can:
+
+- Browse their infrastructure templates (**deployable architectures**) through an IBM Cloud **private catalog** tailored to their needs.
+- Access an inventory of existing applications and their supporting resources with **IBM Cloud projects**.
+- Monitor and update infrastructure and active automated runbooks with **IBM Cloud projects**
+- Monitor and observe applications with **IBM Cloud observability** across nonproduction and production environments.
+- Monitor and optimize cost with **IBM Cloudability**
+
+A combination of IAM policies, account settings, and catalog configuration can be used to restrict access to unnecessary cloud complexities, keeping the focus on operating the platform.
+
+### Platform Engineering Automation dev view
+{: #idp-automation-dev-view}
+
+{{site.data.keyword.cloud_notm}} can also provide platform engineers with a development environment for automation, including **deployable architectures**.
+
+![Platform Automation Developer Experience](images/automation-dev.svg)
+
+To develop automation, platform engineering teams edit and test code on their local machines, but log in to the {{site.data.keyword.cloud_notm}} administrative account to:
+
+- Browse automation source code and view docs through **IBM Cloud GitLab**
+- Monitor build and test of automation with **IBM Cloud toolchains**, **IBM Cloud projects**, and **IBM Cloud observability** tools.
+- Browse a library of available modules and existing **deployable architectures** through an {{site.data.keyword.cloud_notm}} **private catalog**.
+- Manage cost and clean up temporary resources with **IBM Cloud projects**
+- Manage publishing of automation to application developer and platform operations catalogs with **IBM Cloud toolchains**.
+
+### Workload account view
+{: #idp-workload-account-view}
+
+The contents of the workload accounts are an implementation detail from the perspective of an application developer, but the bread and butter of the platform engineering team. Regardless of what workloads are hosted, we recommend the IBM Cloud Essential Security and Observability Services deployable architecture as a starting point.  This DA configures a workload account using best practices for security and observability.
+
+![IBM Cloud Essential Security and Observability Services](images/security-essentuals.png)
+
+Naturally, solutions will vary depending on organizational needs, but Red Hat Openshift is one good option for hosting containerized applications.
+
+![Red Hat OpenShift Container Platform on VPC landing zone](images/roks-landing-zone.png)
+
+Use the Red Hat OpenShift Container Platform on VPC landing zone deployable architecture as a basis for hosting container based workloads. This architecture supports one or more ROKS clusters in separate VPCs with appropriate subnets, creates worker pools, private and public endpoints, and secure ingress for applications that will be hosted. The architecture also includes key management and object storage for secure storage and backups.
+
+## Summary of {{site.data.keyword.cloud_notm}} guidance for platform engineers
+{: #summary}
+
+In response to the cost and complexities of modern infrastructure management, platform engineering is emerging as a strategic approach favored by development organizations. {{site.data.keyword.cloud}} capabilities can be incorporated into the internal developer platform (IDP) developed by the platform engineering team.
+
+### Key {{site.data.keyword.cloud_notm}} best practices for platform engineers
+{: #key-bps}
+
+- **Automate infrastructure and operations:** Use **Terraform** and **Ansible** to define infrastructure, onboarding, and Day 2 operations. Leverage {{site.data.keyword.cloud_notm}}'s library of terraform modules and **deployable architectures**.  Package custom automation as deployable architectures for reuse.
+- **Implement secure CI/CD pipelines:** Use or extend the **DevSecOps Application Lifecycle Management** deployable architecture (based on {{site.data.keyword.cloud_notm}} **Continuous Delivery**) to integrate shift-left security checks and automate CC/CI and CD processes.
+- **Enable self-service automation:** Offer automation through the **IBM Cloud catalog**, ensuring easy access for development teams.
+- **Enforce secure access controls:** Apply least-privilege principles for users by using **Trusted Profiles** for temporary privilege escalation.
+- **Streamline compliance management:** Audit custom **deployable architectures** and log compliance in the **IBM Cloud catalog**, and use **Security and Compliance Center** to automate compliance checks.
+- **Maintain deployment integrity:** Use **IBM Cloud projects** to detect drift, ensure compliance, and keep deployments up to date.
+- **Optimize account segmentation:** Separate administration, production, and nonproduction workloads with **enterprise accounts** for better governance.
+- **Ensure high availability and disaster recovery:** Leverage built-in **high availability** and **business continuity and disaster recovery** capabilities instead of custom solutions on {{site.data.keyword.cloud_notm}}.
+- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and *sSubscriptions** for discounts.
+- **Enhance observability and event management:** Monitor infrastructure with **Cloud Monitoring** and **Cloud Logs**. Provide developers with access during onboarding. Integrate monitoring with **Event Notifications** to route key alerts to the right teams.
+
+By following these best practices, platform engineers can reduce operational overhead, enhance security and compliance, and empower application teams to operate efficiently in complex environments.
