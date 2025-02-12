@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-02-12"
 
 keywords:
 
@@ -17,6 +17,8 @@ subcollection: platform-engineering
 
 Concrete Platform Engineering on {{site.data.keyword.cloud}} streamlines application development by eliminating friction while enhancing scalability, security, and compliance. By leveraging deployable architectures that are built with Terraform and Ansible and {{site.data.keyword.cloud_notm}} catalogs, platform teams can automate infrastructure deployment and empower developers with self-service capabilities. Cost efficiency is achieved through bulk licensing and shared resources, while robust security and regulatory compliance safeguard organizational integrity. A centralized account structure, which is enabled by {{site.data.keyword.cloud_notm}} projects, strengthens governance, making platform engineering a cornerstone of modern IT management.
 {: shortdesc}
+
+![Concrete platform Image](images/concrete.png){: caption="Concrete platform" caption-side="bottom"}
 
 ## Introduction
 {: #heading-intro}
@@ -144,6 +146,8 @@ For detailed guidance on planning deployable architectures and using private cat
 
 {{site.data.keyword.cloud}} offers secure, compliant [deployable architectures](https://cloud.ibm.com/catalog#deployable_architecture_tab) that can be used as-is or customized. These architectures incorporate {{site.data.keyword.cloud}} best practices, developed collaboratively by platform engineering teams and {{site.data.keyword.cloud}} service experts.
 
+Whether the platform engineering team chooses to customize an existing deployable architecture or build an entirely new one, they can leverage {{site.data.keyword.cloud}}'s library of vetted [terraform modules](/catalog?catalog=2) and [best practices](/docs-draft/terraform-on-ibm-cloud?topic=terraform-on-ibm-cloud-white-paper).
+
 ![VPC landing zone deployable architecture example](images/landing-zone.png){: caption="VPC landing zone deployable architecture example" caption-side="bottom"}
 
 For example, the “Red Hat OpenShift Container Platform on VPC Landing Zone” deployable architecture is ideal for containerized environments. It preconfigures services like logging, auditing, key management, backups, network partitioning, and more. {{site.data.keyword.cloud}} ensures that these architectures stay current, evolving with new features and service updates.
@@ -247,83 +251,83 @@ Platform engineering teams help control cost for an organization in several ways
 ## Example IDP built on {{site.data.keyword.cloud_notm}}
 {: #idp}
 
-By integrating these recommendations, a platform engineering team can construct a robust **Internal Developer Platform (IDP)** on {{site.data.keyword.cloud_notm}}, streamlining the developer experience and operational efficiency.
+By implementing these best practices, a platform engineering team can construct a robust **Internal Developer Platform (IDP)** on {{site.data.keyword.cloud_notm}}, streamlining the developer experience and operational efficiency.
 
 ### Application developer view
 {: #idp-app-dev-view}
 
-For application development teams, an {{site.data.keyword.cloud_notm}} based IDP provides a self-service catalog of templates that are tailored for various application types, complete with built-in CI/CD pipelines and automated deployment. Developers maintain control over their deployments, with full visibility into deployment status, logs, and monitoring across both nonproduction and production environments. Additionally, they have direct access to database and storage services in nonproduction environments, facilitating debugging and issue resolution.
+An IBM Cloud-based IDP empowers application development teams with a self-service menu of templates for various application types. These templates come with preconfigured CI/CD pipelines and automated deployment capabilities, enabling developers to manage their deployments efficiently.
 
-Beyond deployment and monitoring, developers receive automated notifications for key events and support through their preferred messaging platforms and issue tracking systems. They can track costs, make updates, and report platform issues seamlessly, ensuring a smooth and efficient development workflow.
+Developers gain full visibility into their applications' deployment status, logs, and monitoring across both nonproduction and production environments. They also have direct access to database and storage services in nonproduction environments, streamlining debugging and issue resolution.
 
-![Application Developer Experience Diagram](images/app-dev.svg)
+Beyond deployment and monitoring, developers receive automated notifications for key events via their preferred messaging platform. They can also track costs, apply updates, and report platform issues seamlessly—ensuring an efficient and productive development workflow.
+
+![Application Developer Experience Diagram](images/app-dev.svg){: caption="Application developer experience" caption-side="bottom"}
 
 To interact with the IDP, application development teams log in to the IBM Cloud administrative account, where they can:
 
 - Browse their templates (**deployable architectures**) through an IBM Cloud **private catalog** tailored to their needs.
-- Access an inventory of existing applications via **IBM Cloud projects**.
+- Access an inventory of existing applications with **IBM Cloud projects**.
 - Manage deployments through the **IBM Cloud toolchains** interface.
 - Monitor and observe applications with **IBM Cloud observability** across nonproduction and production environments.
 
-For those seeking a streamlined experience, a combination of IAM policies, account settings, and catalog configuration can be used to restrict access to unnecessary cloud complexities, keeping the focus on application development.
+For those seeking a streamlined experience, IAM policies, account settings, and catalog configurations can restrict access to unnecessary cloud complexities, allowing developers to focus on building and deploying applications efficiently.
 
-By leveraging IBM Cloud, platform engineering teams can deliver a comprehensive, powerful, and user-friendly IDP that enhances developer productivity and accelerates software delivery.
-
-## Application developer view with Backstage / Red Hat Developer Hub
+### Application developer view with Backstage / Red Hat Developer Hub
 {: #idp-backstage}
 
-All the {{site.data.keyword.cloud_notm}} tools and services can be accessed with the CLI and API, making them easy to integrate into a solution fronted by another tool. In this example, we explore how an Internal Developer Platform (IDP) can be built by using **Backstage.io** or **Red Hat Developer Hub** while leveraging IBM Cloud services.
+All the {{site.data.keyword.cloud_notm}} tools and services are accessible via CLI and API, allowing seamless integration with other platforms. This section explores how an IDP can be built using **Backstage.io** or **Red Hat Developer Hub** while leveraging {{site.data.keyword.cloud_notm}} services.
 
-![Backstage.io Application Developer Experience](images/backstage.svg)
+![Backstage.io Application Developer Experience](images/backstage.svg){: caption="Backstage.io application developer experience" caption-side="bottom"}
 
-**Backstage.io** serves as the front end for the entire developer experience, streamlining workflows and improving productivity. However, the implementation of key IDP functions for {{site.data.keyword.cloud_notm}} deployments still relies on the {{site.data.keyword.cloud_notm}} tools discussed earlier. These integrations can seamlessly coexist with other cloud environments, providing developers with the flexibility to select one or more clouds for deployment.
+**Backstage.io** serves as the front end for the entire developer experience, streamlining workflows and improving productivity. However, the implementation of key IDP functions for {{site.data.keyword.cloud_notm}} deployments still rely on IBM Cloud’s native tools. These integrations can coexist with other cloud environments, giving developers flexibility in their deployment choices.
 
 Organizations can customize their stack by replacing components with their preferred tools—such as GitHub instead of GitLab, GitHub Actions instead of {{site.data.keyword.cloud_notm}} toolchains, or Instana Observability instead of {{site.data.keyword.cloud_notm}} observability—ensuring a tailored, scalable, and efficient developer experience.
 
 ### Platform engineering operations view
 {: #idp-ops-view}
 
-{{site.data.keyword.cloud_notm}} can provide platform engineers with an operations view into their platform.
+{{site.data.keyword.cloud_notm}} provides platform engineers with an operational view of their platform.
 
-![Platform Operations Experience](images/platform-ops.svg)
+![Platform Operations Experience](images/platform-ops.svg){: caption="Platform operations experience" caption-side="bottom"}
 
-To operate the platform, platform engineering teams log in to the {{site.data.keyword.cloud_notm}} administrative account, where they can:
+Platform engineering teams log in to the {{site.data.keyword.cloud_notm}} administrative account to:
 
-- Browse their infrastructure templates (**deployable architectures**) through an IBM Cloud **private catalog** tailored to their needs.
-- Access an inventory of existing applications and their supporting resources with **IBM Cloud projects**.
-- Monitor and update infrastructure and active automated runbooks with **IBM Cloud projects**
-- Monitor and observe applications with **IBM Cloud observability** across nonproduction and production environments.
-- Monitor and optimize cost with **IBM Cloudability**
+- Browse **deployable architectures** through an IBM Cloud **private catalog**.
+- Access application and resource inventories with **IBM Cloud projects**.
+- Manage infrastructure and invoke automated runbooks with **IBM Cloud projects**
+- Observe applications across environments with **IBM Cloud observability**.
+- Optimize cost and implement chargebacks/showbacks with **IBM Cloudability**
 
-A combination of IAM policies, account settings, and catalog configuration can be used to restrict access to unnecessary cloud complexities, keeping the focus on operating the platform.
+A combination of IAM policies, account settings, and catalog configuration hide unnecessary cloud complexities, keeping the focus on operating the platform.
 
 ### Platform Engineering Automation dev view
 {: #idp-automation-dev-view}
 
 {{site.data.keyword.cloud_notm}} can also provide platform engineers with a development environment for automation, including **deployable architectures**.
 
-![Platform Automation Developer Experience](images/automation-dev.svg)
+![Platform Automation Developer Experience](images/automation-dev.svg){: caption="Platform automation developer experience" caption-side="bottom"}
 
-To develop automation, platform engineering teams edit and test code on their local machines, but log in to the {{site.data.keyword.cloud_notm}} administrative account to:
+Automation developers work locally but log in to {{site.data.keyword.cloud_notm}} to:
 
-- Browse automation source code and view docs through **IBM Cloud GitLab**
-- Monitor build and test of automation with **IBM Cloud toolchains**, **IBM Cloud projects**, and **IBM Cloud observability** tools.
-- Browse a library of available modules and existing **deployable architectures** through an {{site.data.keyword.cloud_notm}} **private catalog**.
-- Manage cost and clean up temporary resources with **IBM Cloud projects**
-- Manage publishing of automation to application developer and platform operations catalogs with **IBM Cloud toolchains**.
+- Browse automation source code and documentation through **IBM Cloud GitLab**
+- Monitor builds and tests with **IBM Cloud toolchains**, **IBM Cloud projects**, and **IBM Cloud observability**.
+- Access reusable modules and deployable architectures via the {{site.data.keyword.cloud_notm}} **private catalog**.
+- Manage costs and clean up temporary resources with **IBM Cloud projects**
+- Publish automation to developer and operations catalogs through **IBM Cloud toolchains**.
 
 ### Workload account view
 {: #idp-workload-account-view}
 
-The contents of the workload accounts are an implementation detail from the perspective of an application developer, but the bread and butter of the platform engineering team. Regardless of what workloads are hosted, we recommend the IBM Cloud Essential Security and Observability Services deployable architecture as a starting point.  This DA configures a workload account using best practices for security and observability.
+While workload accounts are abstracted from application developers, they are critical for platform engineers. We recommend starting with the [IBM Cloud Essential Security and Observability Services](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-core-security-svcs-0294f96e-7314-48d1-a710-c08a541b2119-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjZGVwbG95YWJsZV9hcmNoaXRlY3R1cmVfdGFi) deployable architecture, which enforces best practices for security and observability.
 
-![IBM Cloud Essential Security and Observability Services](images/security-essentuals.png)
+![IBM Cloud Essential Security and Observability Services](images/security-essentuals.png){: caption="IBM Cloud Essential Security and Observability Services" caption-side="bottom"}
 
-Naturally, solutions will vary depending on organizational needs, but Red Hat Openshift is one good option for hosting containerized applications.
+Solutions vary by organization, but for containerized applications, Red Hat OpenShift is a strong option.
 
-![Red Hat OpenShift Container Platform on VPC landing zone](images/roks-landing-zone.png)
+![Red Hat OpenShift Container Platform on VPC landing zone](images/roks-landing-zone.png){: caption="Red Hat OpenShift Container Platform on VPC landing zone" caption-side="bottom"}
 
-Use the Red Hat OpenShift Container Platform on VPC landing zone deployable architecture as a basis for hosting container based workloads. This architecture supports one or more ROKS clusters in separate VPCs with appropriate subnets, creates worker pools, private and public endpoints, and secure ingress for applications that will be hosted. The architecture also includes key management and object storage for secure storage and backups.
+The [Red Hat OpenShift Container Platform on VPC Landing Zone](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-slz-ocp-95fccffc-ae3b-42df-b6d9-80be5914d852-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjZGVwbG95YWJsZV9hcmNoaXRlY3R1cmVfdGFi) deployable architecture establishes a scalable foundation for hosting container-based workloads. It configures VPCs, subnets, worker pools, secure ingress, key management, and object storage for secure backups.
 
 ## Summary of {{site.data.keyword.cloud_notm}} guidance for platform engineers
 {: #summary}
@@ -341,7 +345,7 @@ In response to the cost and complexities of modern infrastructure management, pl
 - **Maintain deployment integrity:** Use **IBM Cloud projects** to detect drift, ensure compliance, and keep deployments up to date.
 - **Optimize account segmentation:** Separate administration, production, and nonproduction workloads with **enterprise accounts** for better governance.
 - **Ensure high availability and disaster recovery:** Leverage built-in **high availability** and **business continuity and disaster recovery** capabilities instead of custom solutions on {{site.data.keyword.cloud_notm}}.
-- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and *sSubscriptions** for discounts.
+- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and **Subscriptions** for discounts.
 - **Enhance observability and event management:** Monitor infrastructure with **Cloud Monitoring** and **Cloud Logs**. Provide developers with access during onboarding. Integrate monitoring with **Event Notifications** to route key alerts to the right teams.
 
 By following these best practices, platform engineers can reduce operational overhead, enhance security and compliance, and empower application teams to operate efficiently in complex environments.
