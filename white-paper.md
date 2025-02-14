@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-14"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: platform-engineering
 # Concrete Platform Engineering for {{site.data.keyword.cloud_notm}}
 {: #white-paper}
 
-Concrete Platform Engineering on {{site.data.keyword.cloud}} streamlines application development by eliminating friction while enhancing scalability, security, and compliance. By leveraging deployable architectures that are built with Terraform and Ansible and {{site.data.keyword.cloud_notm}} catalogs, platform teams can automate infrastructure deployment and empower developers with self-service capabilities. Cost efficiency is achieved through bulk licensing and shared resources, while robust security and regulatory compliance safeguard organizational integrity. A centralized account structure, which is enabled by {{site.data.keyword.cloud_notm}} projects, strengthens governance, making platform engineering a cornerstone of modern IT management.
+Concrete Platform Engineering on {{site.data.keyword.cloud}} streamlines application development by eliminating friction while enhancing scalability, security, and compliance. By leveraging deployable architectures, {{site.data.keyword.cloud_notm}} catalogs, and {{site.data.keyword.cloud_notm}} projects platform teams can automate infrastructure deployment and provide developers with self-service capabilities. Cost efficiency is achieved through bulk licensing and shared resources, while robust security and regulatory compliance safeguard organizational integrity.
 {: shortdesc}
 
-![Concrete platform Image](images/concrete.png){: caption="Concrete platform" caption-side="bottom"}
+![Concrete platform engineering](images/concrete.png){: caption="Concrete platform engineering" caption-side="bottom"}
 
 ## Introduction
 {: #heading-intro}
@@ -148,7 +148,7 @@ For detailed guidance on planning deployable architectures and using private cat
 
 Whether the platform engineering team chooses to customize an existing deployable architecture or build an entirely new one, they can leverage {{site.data.keyword.cloud}}'s library of vetted [terraform modules](/catalog?catalog=2) and [best practices](/docs-draft/terraform-on-ibm-cloud?topic=terraform-on-ibm-cloud-white-paper).
 
-![VPC landing zone deployable architecture example](images/landing-zone.png){: caption="VPC landing zone deployable architecture example" caption-side="bottom"}
+![VPC landing zone deployable architecture example](images/vsi-landing-zone.png) {: caption="VPC landing zone deployable architecture example" caption-side="bottom"}
 
 For example, the “Red Hat OpenShift Container Platform on VPC Landing Zone” deployable architecture is ideal for containerized environments. It preconfigures services like logging, auditing, key management, backups, network partitioning, and more. {{site.data.keyword.cloud}} ensures that these architectures stay current, evolving with new features and service updates.
 
@@ -170,7 +170,7 @@ Beyond deployment, development teams require robust tooling for building and tes
 
 To streamline these processes, platform engineering teams should provide a comprehensive, pre-packaged solution that allows developers to focus on delivering business value. The {{site.data.keyword.cloud_notm}} [DevSecOps Application Lifecycle Management](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-devsecops-alm-e1c16cac-7ea8-413f-a819-67e3a3251e44-global) Deployable Architecture offers a solid foundation for achieving this goal.
 
-![DevSecOps Application Lifecycle Management Deployable Architecture](images/almda.png){: caption="DevSecOps application lifecycle management deployable architecture" caption-side="bottom"}
+![DevSecOps Application Lifecycle Management Deployable Architecture](images/almda.svg){: caption="DevSecOps application lifecycle management deployable architecture" caption-side="bottom"}
 
 ### Compliance
 {: #compliance}
@@ -196,7 +196,8 @@ Platform engineering teams on {{site.data.keyword.cloud}} codify security best p
 
 ![Manage workload accounts from a central administrative account](images/accounts.svg){: caption="Manage workload accounts from a central administrative account" caption-side="bottom"}
 
-- **Administration account:** Application and platform engineering teams access a centralized administration account for self-serve deployment of deployable architectures and for running automated maintenance operations. The administration account contains the private catalogs of deployable architectures for both teams to self-serve from.
+Administration account
+:    Application and platform engineering teams access a centralized administration account for self-serve deployment of deployable architectures and for running automated maintenance operations. The administration account contains the private catalogs of deployable architectures for both teams to self-serve from.
 
 Authorize the projects in the administrative account to deploy and update resources in the workload accounts with trusted profiles that are bound to the project or API keys that are stored in secrets manager where the user doesn’t have access, but the project does.
 {: tip}
