@@ -18,7 +18,7 @@ subcollection: platform-engineering
 Concrete Platform Engineering on {{site.data.keyword.cloud}} streamlines application development by eliminating friction while enhancing scalability, security, and compliance. By leveraging deployable architectures, {{site.data.keyword.cloud_notm}} catalogs, and {{site.data.keyword.cloud_notm}} projects platform teams can automate infrastructure deployment and provide developers with self-service capabilities. Cost efficiency is achieved through bulk licensing and shared resources, while robust security and regulatory compliance safeguard organizational integrity.
 {: shortdesc}
 
-![Concrete platform engineering](images/concrete.png){: caption="Concrete platform engineering" caption-side="bottom"}
+![Concrete platform engineering](images/concrete.png)
 
 ## Introduction
 {: #heading-intro}
@@ -57,7 +57,7 @@ The balance between platform engineering teams that need centralized control and
 
 When you establish a platform engineering practice, one of the primary objectives is building automation to streamline the hosting of developer applications. Over time, as developers demand faster response times, greater control, and enhanced visibility, internal platform engineering efforts naturally progress toward creating an Internal Development Platform (IDP)—a self-service ecosystem that empowers developers with intuitive automation and tooling.
 
-![Crawl-walk-run platform evolution](images/crawl-walk-run.svg){: caption="Crawl-walk platform evolution" caption-side="bottom"}
+![Crawl-walk-run platform evolution](images/crawl-walk-run.svg){: caption="Crawl-walk-run platform evolution" caption-side="bottom"}
 
 ## Key steps in platform engineering automation
 {: #heading-steps}
@@ -148,7 +148,7 @@ For detailed guidance on planning deployable architectures and using private cat
 
 Whether the platform engineering team chooses to customize an existing deployable architecture or build an entirely new one, they can leverage {{site.data.keyword.cloud}}'s library of vetted [terraform modules](/catalog?catalog=2) and [best practices](/docs-draft/terraform-on-ibm-cloud?topic=terraform-on-ibm-cloud-white-paper).
 
-![VPC landing zone deployable architecture example](images/vsi-landing-zone.png) {: caption="VPC landing zone deployable architecture example" caption-side="bottom"}
+![VPC landing zone deployable architecture example](images/vsi-landing-zone.png){: caption="VPC landing zone deployable architecture example" caption-side="bottom"}
 
 For example, the “Red Hat OpenShift Container Platform on VPC Landing Zone” deployable architecture is ideal for containerized environments. It preconfigures services like logging, auditing, key management, backups, network partitioning, and more. {{site.data.keyword.cloud}} ensures that these architectures stay current, evolving with new features and service updates.
 
@@ -281,7 +281,7 @@ All the {{site.data.keyword.cloud_notm}} tools and services are accessible via C
 
 ![Backstage.io Application Developer Experience](images/backstage.svg){: caption="Backstage.io application developer experience" caption-side="bottom"}
 
-**Backstage.io** serves as the front end for the entire developer experience, streamlining workflows and improving productivity. However, the implementation of key IDP functions for {{site.data.keyword.cloud_notm}} deployments still rely on IBM Cloud’s native tools. These integrations can coexist with other cloud environments, giving developers flexibility in their deployment choices.
+**Backstage.io** serves as the front end for the entire developer experience, enabling multi-cloud deployments, streamlining workflows, and improving productivity. However, key IDP functions for {{site.data.keyword.cloud_notm}} deployments are implemented by building custom plugins which use IBM Cloud APIs to access Catalogs, Deployable Architectures, Projects, Toolchains, Notifications, and other IBM Cloud capabilities.
 
 Organizations can customize their stack by replacing components with their preferred tools—such as GitHub instead of GitLab, GitHub Actions instead of {{site.data.keyword.cloud_notm}} toolchains, or Instana Observability instead of {{site.data.keyword.cloud_notm}} observability—ensuring a tailored, scalable, and efficient developer experience.
 
@@ -339,14 +339,14 @@ In response to the cost and complexities of modern infrastructure management, pl
 {: #key-bps}
 
 - **Automate infrastructure and operations:** Use **Terraform** and **Ansible** to define infrastructure, onboarding, and Day 2 operations. Leverage {{site.data.keyword.cloud_notm}}'s library of terraform modules and **deployable architectures**.  Package custom automation as deployable architectures for reuse.
-- **Implement secure CI/CD pipelines:** Use or extend the **DevSecOps Application Lifecycle Management** deployable architecture (based on {{site.data.keyword.cloud_notm}} **Continuous Delivery**) to integrate shift-left security checks and automate CC/CI and CD processes.
-- **Enable self-service automation:** Offer automation through the **IBM Cloud catalog**, ensuring easy access for development teams.
-- **Enforce secure access controls:** Apply least-privilege principles for users by using **Trusted Profiles** for temporary privilege escalation.
+- **Implement CI/CD pipelines incorporating shift left:** Use or extend the **DevSecOps Application Lifecycle Management** deployable architecture (based on {{site.data.keyword.cloud_notm}} **Continuous Delivery**) to integrate shift-left security, quality, and compliance checks and to automate CC/CI/CD processes.
+- **Enable self-service automation:** Offer automation through the **IBM Cloud catalog**, ensuring easy access for development teams, while ensuring only approved solutions are used and assisting with versioning, access, and compliance.
+- **Enforce secure access controls:** Apply least-privilege principles for users by providing access to approved automation rather than directly to resources.  Use **Trusted Profiles** for temporary privilege escalation.
 - **Streamline compliance management:** Audit custom **deployable architectures** and log compliance in the **IBM Cloud catalog**, and use **Security and Compliance Center** to automate compliance checks.
-- **Maintain deployment integrity:** Use **IBM Cloud projects** to detect drift, ensure compliance, and keep deployments up to date.
+- **Maintain deployment integrity:** Use **IBM Cloud projects** to detect drift, ensure compliance, track inventory, and keep deployments up to date.
 - **Optimize account segmentation:** Separate administration, production, and nonproduction workloads with **enterprise accounts** for better governance.
 - **Ensure high availability and disaster recovery:** Leverage built-in **high availability** and **business continuity and disaster recovery** capabilities instead of custom solutions on {{site.data.keyword.cloud_notm}}.
-- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and **Subscriptions** for discounts.
+- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and **Subscriptions** for discounts. Used shared infrastructure for services with fixed costs as appropriate.
 - **Enhance observability and event management:** Monitor infrastructure with **Cloud Monitoring** and **Cloud Logs**. Provide developers with access during onboarding. Integrate monitoring with **Event Notifications** to route key alerts to the right teams.
 
 By following these best practices, platform engineers can reduce operational overhead, enhance security and compliance, and empower application teams to operate efficiently in complex environments.
