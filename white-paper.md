@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -33,14 +33,14 @@ For more on the general practice of platform engineering and why it is becoming 
 
 Application development teams face several challenges that slow down application innovation, development, and delivery—none of which are core to the business problems they aim to solve. These challenges include:
 
-- **Infrastructure Selection:** Choosing the optimal mix of software and services for building applications, storing source code, hosting, scanning for vulnerabilities, and more.
-- **Infrastructure Expertise:** Developing or hiring skilled professionals to configure and maintain pipelines, source control systems, networking, clusters, and other infrastructure components.
-- **Application Lifecycle and Shift Left:** Choosing the right set of tools to build, test, and deploy applications. This includes shift left activities like code scanning, code coverage, change management, and evidence collection.
-- **Compliance Programs:** Navigating complex requirements such as PCI, GDPR, and others, which demand expertise, effort to maintain compliance, and resources for managing audits.
-- **Security Overhead:** Building or acquiring expertise to ensure application security by hardening images, setting up audits, applying patches, scanning for vulnerabilities, securing network ports, rotating secrets, enforcing secure coding practices, and so on.
-- **High Availability:** Ensuring application availability despite outages, software bugs, denial-of-service attacks, and other disruptions requires thoughtful infrastructure design, monitoring, and robust disaster recovery capabilities.
+- **Infrastructure selection:** Choosing the optimal mix of software and services for building applications, storing source code, hosting, scanning for vulnerabilities, and more.
+- **Infrastructure expertise:** Developing or hiring skilled professionals to configure and maintain pipelines, source control systems, networking, clusters, and other infrastructure components.
+- **Application lifecycle tooling:** Choosing the right set of tools to build, test, and deploy applications. This includes shift left activities like code scanning, code coverage, change management, and evidence collection.
+- **Compliance programs:** Navigating complex requirements such as PCI, GDPR, and others, which demand expertise, effort to maintain compliance, and resources for managing audits.
+- **Security overhead:** Building or acquiring expertise to ensure application security by hardening images, setting up audits, applying patches, scanning for vulnerabilities, securing network ports, rotating secrets, enforcing secure coding practices, and so on.
+- **High availability:** Ensuring application availability despite outages, software bugs, denial-of-service attacks, and other disruptions requires thoughtful infrastructure design, monitoring, and robust disaster recovery capabilities.
 - **Scalability:** Enabling applications to scale with demand requires continuous performance monitoring and a deep understanding of key infrastructure services and potential application bottlenecks.
-- **Cost Control:** Managing infrastructure costs through reservations, right-sizing resources, selecting the right service plans, and sharing resources effectively.
+- **Cost control:** Managing infrastructure costs through reservations, right-sizing resources, selecting the right service plans, and sharing resources effectively.
 
 A well-designed platform engineering team can alleviate many of these burdens, empowering application teams to focus on innovation and delivery.
 However, application teams still need a degree of control to:
@@ -67,7 +67,7 @@ Successful platform engineering teams adopt an incremental approach to automatio
    Automate workflows to streamline application deployment onto managed infrastructure. The CD pipeline serves as a critical bridge between development and platform engineering, ensuring seamless, reliable, and efficient software releases.
 2. **Cloud account setup and hardening (walk)**
    Automate the creation and configuration of cloud accounts with built-in security best practices.
-3. **Infrastructure Provisioning (walk)**
+3. **Infrastructure provisioning (walk)**
    Develop automation for deploying critical hosting infrastructure, including Virtual Private Clouds (VPCs), container clusters, storage solutions, and database services.
 4. **Infrastructure and application monitoring (walk)**
    Automate the configuration and access to infrastructure and application monitoring for the platform engineering team
@@ -84,13 +84,13 @@ Successful platform engineering teams adopt an incremental approach to automatio
 {: #heading-selfserve}
 
 Enhancing automation by exposing key capabilities as self-service features creates a more developer-friendly platform:
-1. **Observability Tools for Developers**
+1. **Observability tools for developers**
    Provide developers with access to observability solutions, enabling monitoring, logging, and alerting for better system insight.
-2. **Self-serve Onboarding**
+2. **Self-serve onboarding**
    Allow developers to initiate application onboarding with minimal friction through user-friendly interfaces or APIs.
-3. **CI/CD and Observability Integrations**
-   Make CI/CD pipelines (including shift-left) and observability tools easily accessible for developers to configure, monitor, and troubleshoot their applications independently.
-4. **Scaling Automation**
+3. **CI/CD and observability integrations**
+   Make continuous integration (CI) and continuous delivery (CD) pipelines and observability tools easily accessible for developers to configure, monitor, and troubleshoot their applications independently.
+4. **Scaling automation**
    Provide tooling so that developers can adjust resources and capacity without manual intervention.
 
 By transforming internal platform engineering tools into a robust IDP, organizations can boost developer productivity, reduce operational overhead, and foster innovation through frictionless automation and enhanced autonomy.
@@ -133,7 +133,7 @@ By establishing these clearly defined roles, platform engineering teams can impr
 
 Businesses rarely gain value from application teams investing in infrastructure innovation. Instead, platform engineering teams should evaluate business needs and provide common infrastructure options. Recognizing that no single solution fits all, they must offer a range of patterns to suit diverse requirements—such as GPUs for AI workloads, specialized storage for data processing, or distinct handling for batch jobs versus long-running services.
 
-Platform engineering teams create **deployable architectures** to deliver standardized infrastructure solutions. These packaged bundles include automation (for example, Terraform, Ansible) and supporting resources that include documentation, architecture diagrams, runbooks, required access permissions, and compliance statements. Hosted in a private **{{site.data.keyword.cloud}} catalog**, DAs offer a self-serve menu of options, enabling quick deployment, customization within boundaries, and efficient lifecycle management.
+Platform engineering teams create **deployable architectures** to deliver standardized infrastructure solutions. These packaged bundles include automation (for example Terraform and Ansible) and supporting resources that include documentation, architecture diagrams, runbooks, required access permissions, and compliance statements. Hosted in a private **{{site.data.keyword.cloud}} catalog**, deployable architectures offer a self-serve menu of options, enabling quick deployment, customization within boundaries, and efficient lifecycle management.
 
 Share IaC as templates (deployable architectures) with the {{site.data.keyword.cloud}} catalog to enable self-serve access and Day 2 operations.
 {: tip}
@@ -161,16 +161,16 @@ As discussed previously, experts codify their knowledge into **deployable archit
 
 The result is an evolving portfolio of deployable architectures, with which teams must stay current. {{site.data.keyword.cloud}} projects are designed to help users of deployable architectures automate updates in a safe and controlled fashion.
 
-### Application lifecycle and shift left
+### Application lifecycle tooling
 {: #application-lifecycle}
 
 A core responsibility of platform engineering is to ensure that applications are deployed safely, reliably, and in alignment with organizational needs. This includes supporting incremental deployments, blue-green switching, rollbacks, and other essential deployment strategies. Additionally, security and compliance requirements introduce complexities such as change management, secrets management, and provenance tracking.
 
 Beyond deployment, development teams require robust tooling for building and testing applications. Over time, these foundational needs expand to include "shift left" practices like code scanning, license compliance, and test coverage analysis—integrating security and quality checks earlier in the development lifecycle.
 
-To streamline these processes, platform engineering teams should provide a comprehensive, pre-packaged solution that allows developers to focus on delivering business value. The {{site.data.keyword.cloud_notm}} [DevSecOps Application Lifecycle Management](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-devsecops-alm-e1c16cac-7ea8-413f-a819-67e3a3251e44-global) Deployable Architecture offers a solid foundation for achieving this goal.
+To streamline these processes, platform engineering teams should provide a comprehensive, pre-packaged solution that allows developers to focus on delivering business value. The {{site.data.keyword.cloud_notm}} [DevSecOps Application Lifecycle Management](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-devsecops-alm-e1c16cac-7ea8-413f-a819-67e3a3251e44-global) deployable architecture offers a solid foundation for achieving this goal.
 
-![DevSecOps Application Lifecycle Management Deployable Architecture](images/almda.svg){: caption="DevSecOps application lifecycle management deployable architecture" caption-side="bottom"}
+![DevSecOps Application Lifecycle Management deployable architecture](images/almda.svg){: caption="DevSecOps application lifecycle management deployable architecture" caption-side="bottom"}
 
 ### Compliance
 {: #compliance}
@@ -180,7 +180,7 @@ Compliance programs can place a significant burden on application teams, requiri
 Have auditors review each deployable architecture as a general tool, not as a specific deployment so future deployments are pre-approved.
 {: tip}
 
-To address compliance requirements efficiently, **deployable architectures** incorporate solutions for infrastructure compliance requirements. These DAs can be audited, record compliance in a standardized format, and provide a strong foundation for meeting compliance needs. {{site.data.keyword.cloud}}’s **Security and Compliance Center** enhances this process by automating compliance checks and generating necessary evidence. Furthermore, deployable architectures in the {{site.data.keyword.cloud}} catalog clearly display compliance information, making it easily accessible to application developers and auditors.
+To address compliance requirements efficiently, **deployable architectures** incorporate solutions for infrastructure compliance requirements. These deployable architectures can be audited, record compliance in a standardized format, and provide a strong foundation for meeting compliance needs. {{site.data.keyword.cloud}}’s **Security and Compliance Center** enhances this process by automating compliance checks and generating necessary evidence. Furthermore, deployable architectures in the {{site.data.keyword.cloud}} catalog clearly display compliance information, making it easily accessible to application developers and auditors.
 
 **{{site.data.keyword.cloud}} projects** extend further support compliance efforts by:
 -	Running additional compliance checks on deployable architecture configurations before deployment.
@@ -192,7 +192,7 @@ This integrated approach empowers organizations to meet compliance requirements 
 ### Security
 {: #security}
 
-Platform engineering teams on {{site.data.keyword.cloud}} codify security best practices into **Deployable Architectures** while using **enterprise accounts** to enhance security by separating different functions into different accounts.
+Platform engineering teams on {{site.data.keyword.cloud}} codify security best practices into **deployable architectures** while using **enterprise accounts** to enhance security by separating different functions into different accounts.
 
 ![Manage workload accounts from a central administrative account](images/accounts.svg){: caption="Manage workload accounts from a central administrative account" caption-side="bottom"}
 
@@ -202,7 +202,7 @@ Administration account
 Authorize the projects in the administrative account to deploy and update resources in the workload accounts with trusted profiles that are bound to the project or API keys that are stored in secrets manager where the user doesn’t have access, but the project does.
 {: tip}
 
-Workload Accounts
+Workload accounts
 :    Infrastructure and services that support application workloads are deployed into separate workload accounts, simplifying access control and adding an extra layer of security. Access to workload accounts is strictly controlled and typically read only as modifications are done with automation that is controlled from the administrative account.
 
 Production and nonproduction accounts
@@ -215,22 +215,22 @@ Set a short session limit on superuser trusted profiles so that users don’t si
 
 By packaging these automated operations into deployable architectures and managing them with **{{site.data.keyword.cloud}} projects**, platform engineers ensure consistency, security, and ease of use across all operations. This structured approach minimizes risk and empowers teams with reliable and secure infrastructure management.
 
-In large enterprises, many administration accounts and their associated workload accounts can exist to align with organizational structures. These sets of related accounts can be organized within a single {{site.data.keyword.cloud}} enterprise as **account groups**.
+In large enterprises, many administration accounts and their associated workload accounts can exist to align with organizational structures. These sets of related accounts can be organized within a single {{site.data.keyword.cloud}} enterprise as **account groups**. To learn more, refer to the [Enterprise Architecture](/docs/enterprise-account-architecture) whitepaper.
 
 ### High availability and scalability
 {: #ha-scalability}
 
-Centralized platform engineering expertise ensures that infrastructure enables high availability and scalability. Platform engineers codify their expertise in availability and scaling best practices into **deployable architectures**. When cost or resource limitations are a factor deployable architectures flavors or deployable architecture configuration options (inputs) are provided, allowing application teams to manage tradeoffs between cost, scale, and availability.
+Centralized platform engineering expertise ensures that infrastructure enables high availability and scalability. Platform engineers codify their expertise in availability and scaling best practices into **deployable architectures**. When cost or resource limitations are a factor, deployable architecture configuration options (inputs) are provided, allowing application teams to manage tradeoffs between cost, scale, and availability.
 
 {{site.data.keyword.cloud}} best practices for ensuring reliable scaling and availability include:
 * **Backup storage:** Store backups in a geographically separate region from the workload they support. {{site.data.keyword.cloud}} offers 9 multi-zone regions globally, along with additional data centers and an expanding number of single-campus Multi-Zone Regions (MZRs).
-* **Regular backups:** Implement frequent, automated backups of all critical data to facilitate system recovery. **{{site.data.keyword.cloud}} Databases**, **Block Storage**, and other data services offer automatic backup capabilities making this easy.
+* **Regular backups:** Implement frequent, automated backups of all critical data to facilitate system recovery. **{{site.data.keyword.cloud}} databases**, **block storage**, and other data services offer automatic backup capabilities making this easy.
 * **Backup monitoring and testing:** Continuously monitor backups and regularly test recovery procedures to ensure they work effectively when needed.
 * **Backup security:** Safeguard backup data by using IBM **Key Protect** to encrypt backups with your own encryption keys, ensuring confidentiality, integrity, and availability.
 * **Contingency planning:** Create contingency plans that include validation procedures for confirming the successful recovery and restoration of the original system configuration.
 * **Horizontal scaling:** Use compute services like {{site.data.keyword.cloud}} **VPC virtual machines**, **ROKS/Kubernetes**, or {{site.data.keyword.cloud}} **Code Engine** and adjust the number of nodes or use autoscaling to achieve horizontal application scaling.
-* **Vertical Scaling:** Increase the size of nodes in {{site.data.keyword.cloud}} **Clusters**, **virtual machines**, or **Databases** to scale applications vertically.
-* **Multi-region deployments:** Enhance both scale and availability by deploying workloads across multiple regions and use IBM **Cloud Internet Services** to globally load balance across regions.
+* **Vertical scaling:** Increase the size of nodes in {{site.data.keyword.cloud}} **Clusters**, **virtual machines**, or **Databases** to scale applications vertically.
+* **Multi-region deployments:** Enhance both scale and availability by deploying workloads across multiple regions and use IBM **Cloud internet services** to globally load balance across regions.
 * **Observability:** Monitor logs and metrics with **IBM Cloud Logs** and **IBM Cloud Monitoring**. Provide access to these essential tools to application teams as part of onboarding.
 * **Notifications:** Route alerts and other notifications to the appropriate platform and application operations teams with **IBM Cloud Event Notifications**. Event Notifications integrates with other systems like slack, service now, pager duty making it easy to reach the right people.
 
@@ -245,14 +245,14 @@ Platform engineering teams help control cost for an organization in several ways
    * **Reservations** that provide discounts in return for 1-or-3 year terms on compute infrastructure, and
    * **Subscriptions** that give discounts in return for spend commitments across a bundle of services or all of {{site.data.keyword.cloud}}.
     {{site.data.keyword.cloud}} services frequently offer service plans that decrease in cost with higher use or for commitment to higher use.
-* **Shared infrastructure** - multiple applications can share the same infrastructure to save costs. This is valuable with services that have a fixed minimum cost like many of the {{site.data.keyword.cloud}} Security services, network, and compute services. Shared infrastructure also allows applications teams to benefit from plans that offer lower per-unit rates at higher consumption levels. Platform engineers are responsible for deploying the shared infrastructure while application teams onboard to the infrastructure with a deployable architecture.
+* **Shared infrastructure** - multiple applications can share the same infrastructure to save costs. This is useful for services that have a fixed minimum cost like many of the {{site.data.keyword.cloud}} security, network, and compute services. Shared infrastructure also allows applications teams to benefit from plans that offer lower per-unit rates at higher consumption levels. Platform engineers are responsible for deploying the shared infrastructure while application teams onboard to the infrastructure with a deployable architecture.
 * **Optimized scaling and monitoring** - platform engineering teams monitor infrastructure use and scale it on behalf of applications for maximum cost efficiency.  IBM Cloudability helps monitor cost and optimize both scale and commitments. An instance of the Cloudability deployable architecture deployed to each workload account makes it easy to monitor cost. In addition, IBM Turbonomic provides automation to optimize resource allocation and AI-powered recommendations.
 * **Chargebacks or showbacks** allow costs to be attributed to specific applications. Assisted by {{site.data.keyword.cloud}} projects and IBM Cloudability, platform engineering teams can view costs by project and application and thus implement chargebacks or showbacks to create application incentives to control infrastructure spend.
 
 ## Example IDP built on {{site.data.keyword.cloud_notm}}
 {: #idp}
 
-By implementing these best practices, a platform engineering team can construct a robust **Internal Developer Platform (IDP)** on {{site.data.keyword.cloud_notm}}, streamlining the developer experience and operational efficiency.
+By implementing these best practices, a platform engineering team can construct a robust **internal developer platform (IDP)** on {{site.data.keyword.cloud_notm}}, streamlining the developer experience and operational efficiency.
 
 ### Application developer view
 {: #idp-app-dev-view}
@@ -281,7 +281,7 @@ All the {{site.data.keyword.cloud_notm}} tools and services are accessible via C
 
 ![Backstage.io Application Developer Experience](images/backstage.svg){: caption="Backstage.io application developer experience" caption-side="bottom"}
 
-**Backstage.io** serves as the front end for the entire developer experience, enabling multi-cloud deployments, streamlining workflows, and improving productivity. However, key IDP functions for {{site.data.keyword.cloud_notm}} deployments are implemented by building custom plugins which use IBM Cloud APIs to access Catalogs, Deployable Architectures, Projects, Toolchains, Notifications, and other IBM Cloud capabilities.
+**Backstage.io** serves as the front end for the entire developer experience, enabling multi-cloud deployments, streamlining workflows, and improving productivity. However, key IDP functions for {{site.data.keyword.cloud_notm}} deployments are implemented by building custom plugins which use IBM Cloud APIs to access catalogs, deployable architectures, projects, toolchains, notifications, and other IBM Cloud capabilities.
 
 Organizations can customize their stack by replacing components with their preferred tools—such as GitHub instead of GitLab, GitHub Actions instead of {{site.data.keyword.cloud_notm}} toolchains, or Instana Observability instead of {{site.data.keyword.cloud_notm}} observability—ensuring a tailored, scalable, and efficient developer experience.
 
@@ -339,14 +339,14 @@ In response to the cost and complexities of modern infrastructure management, pl
 {: #key-bps}
 
 - **Automate infrastructure and operations:** Use **Terraform** and **Ansible** to define infrastructure, onboarding, and Day 2 operations. Leverage {{site.data.keyword.cloud_notm}}'s library of terraform modules and **deployable architectures**.  Package custom automation as deployable architectures for reuse.
-- **Implement CI/CD pipelines incorporating shift left:** Use or extend the **DevSecOps Application Lifecycle Management** deployable architecture (based on {{site.data.keyword.cloud_notm}} **Continuous Delivery**) to integrate shift-left security, quality, and compliance checks and to automate CC/CI/CD processes.
+- **Implement CI/CD pipelines incorporating shift left:** Use or extend the **DevSecOps Application Lifecycle Management** deployable architecture (based on {{site.data.keyword.cloud_notm}} **Continuous Delivery**) to integrate shift-left security, quality, and compliance checks and to automate commit check (CC), continuous integration (CI), and continous delivery (CD) processes.
 - **Enable self-service automation:** Offer automation through the **IBM Cloud catalog**, ensuring easy access for development teams, while ensuring only approved solutions are used and assisting with versioning, access, and compliance.
-- **Enforce secure access controls:** Apply least-privilege principles for users by providing access to approved automation rather than directly to resources.  Use **Trusted Profiles** for temporary privilege escalation.
+- **Enforce secure access controls:** Apply least-privilege principles for users by providing access to approved automation rather than directly to resources.  Use **trusted profiles** for temporary privilege escalation.
 - **Streamline compliance management:** Audit custom **deployable architectures** and log compliance in the **IBM Cloud catalog**, and use **Security and Compliance Center** to automate compliance checks.
 - **Maintain deployment integrity:** Use **IBM Cloud projects** to detect drift, ensure compliance, track inventory, and keep deployments up to date.
 - **Optimize account segmentation:** Separate administration, production, and nonproduction workloads with **enterprise accounts** for better governance.
 - **Ensure high availability and disaster recovery:** Leverage built-in **high availability** and **business continuity and disaster recovery** capabilities instead of custom solutions on {{site.data.keyword.cloud_notm}}.
-- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and **Subscriptions** for discounts. Used shared infrastructure for services with fixed costs as appropriate.
+- **Manage costs effectively:** Use IBM **Cloudability** for cost monitoring, charge-backs, and show-backs. Take advantage of **enterprise savings plans**, **reservations**, and **subscriptions** for discounts. Used shared infrastructure for services with fixed costs as appropriate.
 - **Enhance observability and event management:** Monitor infrastructure with **Cloud Monitoring** and **Cloud Logs**. Provide developers with access during onboarding. Integrate monitoring with **Event Notifications** to route key alerts to the right teams.
 
 By following these best practices, platform engineers can reduce operational overhead, enhance security and compliance, and empower application teams to operate efficiently in complex environments.
