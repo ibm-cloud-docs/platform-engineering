@@ -1,0 +1,25 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs-internal/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: platform-engineering
+    audience: solution
+    category: solution_docs
+    content-type: white-paper
+    navigation: hidden
+    href: /docs/platform-engineering
+    path: platform-engineering
+    label: Concrete Platform Engineering for IBM Cloud
+    description: Platform Engineering on IBM Cloud leverages deployable architectures, private catalogs, IBM Cloud projects, enterprise accounts, observability services, toolchains, compute and data services to streamline application development.
+    authors:
+    - name: Arn Hyndman
+      title: Senior Technical Staff Member and architect for IBM Cloud Platform
+      image: images/arn.jpg
+      url: https://www.linkedin.com/in/arnhyndman/
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - white-paper.md
