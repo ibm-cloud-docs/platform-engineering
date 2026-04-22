@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-04-04"
 
 keywords:
 
@@ -109,7 +109,7 @@ Roles and Responsibilities:
    * First responders for emergencies
    * Front security and compliance audits
 * Application developers
-   * Develop, develop, and maintain applications.
+   * Develop, test, and maintain applications.
    * Use platform engineering automation tools for deployment and scaling.
    * Ensure security and compliance within their applications (leveraging shift-left automation where possible).
    * Monitor application KPIs
@@ -146,7 +146,7 @@ For detailed guidance on planning deployable architectures and using private cat
 
 {{site.data.keyword.cloud}} offers secure, compliant [deployable architectures](https://cloud.ibm.com/catalog#deployable_architecture_tab) that can be used as-is or customized. These architectures incorporate {{site.data.keyword.cloud}} best practices, developed collaboratively by platform engineering teams and {{site.data.keyword.cloud}} service experts.
 
-Whether the platform engineering team chooses to customize an existing deployable architecture or build an entirely new one, they can leverage {{site.data.keyword.cloud}}'s library of vetted [terraform modules](/catalog?catalog=2) and [best practices](/docs-draft/terraform-on-ibm-cloud?topic=terraform-on-ibm-cloud-white-paper).
+Whether the platform engineering team chooses to customize an existing deployable architecture or build an entirely new one, they can leverage {{site.data.keyword.cloud}}'s library of vetted [terraform modules](/catalog?catalog=2) and [best practices](/docs/terraform-on-ibm-cloud?topic=terraform-on-ibm-cloud-white-paper).
 
 ![VPC landing zone deployable architecture example](images/vsi-landing-zone.png){: caption="VPC landing zone deployable architecture example" caption-side="bottom"}
 
